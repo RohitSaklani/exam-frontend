@@ -1,0 +1,37 @@
+<section class="my-1 relative">
+  <div class="w-full" (click)="globalService.navigate(`/quiz/${cardDetails()?.id}`)">
+    <div #scrollContainer class="gap-2 flex sm:px-3 justify-center py-4 gap-4">
+      <div
+        class="w-[240px] h-[200px] sm:w-[280px] sm:h-[240px] bg-(--bg-card) rounded-xl cursor-pointer shadow-md card"
+      >
+        <div class="relative w-full h-[70%] overflow-hidden rounded-t-xl">
+          <img class="w-full h-full object-cover" src="/engineer.jpg" alt="image" />
+          <span
+            class="absolute bottom-1 left-1 w-max text-[8px] sm:text-[10px] bg-[#5b3aee]/80 font-semibold text-white rounded-2xl px-3 py-[2px]"
+          >
+            {{ cardDetails()?.level }}
+          </span>
+
+          @if (cardDetails()?.durationInSec; as duration) {
+            <span
+              class="absolute bottom-1 right-1 w-max text-[8px] sm:text-[10px] bg-[#5b3aee]/80 font-semibold text-white rounded-2xl px-3 py-[2px]"
+            >
+              {{ duration / 60 }} min
+            </span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-2 p-2">
+          <span
+            class="w-max text-[10px] sm:text-xs bg-[#5b3aee]/30 font-semibold text-[#5b3aee] rounded-2xl px-3 py-[2px]"
+          >
+            {{ cardDetails()?.subjectName }}
+          </span>
+          <h3 class="font-semibold text-[#5b3aee] text-[13px] sm:text-[15px]">
+            {{ cardDetails()?.name }}
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
