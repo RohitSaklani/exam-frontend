@@ -1,0 +1,176 @@
+<main class="min-h-screen flex flex-col justify-center p-4 md:p-8">
+  <div class="w-full max-w-lg mx-auto sm:max-w-4xl">
+    <div class="mb-12">
+      <a href="#"
+        ><img
+          src="https://readymadeui.com/readymadeui.svg"
+          alt="logo"
+          class="w-40 inline-block dark:invert dark:brightness-100"
+        />
+      </a>
+      <p class="text-slate-600 text-base mt-6 dark:text-slate-400">
+        Create your account and get started <app-toggle-button />
+      </p>
+    </div>
+
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()" class="w-full">
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <label
+            for="username"
+            class="mb-2 text-slate-900 font-medium text-sm inline-block dark:text-slate-50"
+            >username</label
+          >
+          <input
+            type="text"
+            name="username"
+            formControlName="username"
+            id="username"
+            placeholder="John"
+            required
+            class="px-3 py-2.5 text-sm text-slate-900 rounded-md bg-white w-full outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 dark:text-slate-50 dark:bg-neutral-800 dark:outline-neutral-700"
+          />
+          @if (signUpForm.get('username')?.touched && signUpForm.get('username')?.invalid) {
+            <p class="text-red-500 text-[12px] mt-1">
+              {{ getError('username') }}
+            </p>
+          }
+        </div>
+
+        <div>
+          <label
+            for="firstName"
+            class="mb-2 text-slate-900 font-medium text-sm inline-block dark:text-slate-50"
+            >First Name</label
+          >
+          <input
+            type="text"
+            name="firstName"
+            formControlName="firstName"
+            id="firstName"
+            placeholder="John"
+            required
+            class="px-3 py-2.5 text-sm text-slate-900 rounded-md bg-white w-full outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 dark:text-slate-50 dark:bg-neutral-800 dark:outline-neutral-700"
+          />
+          @if (signUpForm.get('firstName')?.touched && signUpForm.get('firstName')?.invalid) {
+            <p class="text-red-500 text-[12px] mt-1">
+              {{ getError('firstName') }}
+            </p>
+          }
+        </div>
+        <div>
+          <label
+            for="lastName"
+            class="mb-2 text-slate-900 font-medium text-sm inline-block dark:text-slate-50"
+            >Last Name</label
+          >
+          <input
+            type="text"
+            name="lastName"
+            formControlName="lastName"
+            id="lastName"
+            placeholder="Doe"
+            required
+            class="px-3 py-2.5 text-sm text-slate-900 rounded-md bg-white w-full outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 dark:text-slate-50 dark:bg-neutral-800 dark:outline-neutral-700"
+          />
+          @if (signUpForm.get('lastName')?.touched && signUpForm.get('lastName')?.invalid) {
+            <p class="text-red-500 text-[12px] mt-1">
+              {{ getError('lastName') }}
+            </p>
+          }
+        </div>
+        <div>
+          <label
+            for="email"
+            class="mb-2 text-slate-900 font-medium text-sm inline-block dark:text-slate-50"
+            >Email</label
+          >
+          <input
+            type="email"
+            name="email"
+            id="email"
+            formControlName="email"
+            placeholder="john@readymadeui.com"
+            required
+            class="px-3 py-2.5 text-sm text-slate-900 rounded-md bg-white w-full outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 dark:text-slate-50 dark:bg-neutral-800 dark:outline-neutral-700"
+          />
+          @if (signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid) {
+            <p class="text-red-500 text-[12px] mt-1">
+              {{ getError('email') }}
+            </p>
+          }
+        </div>
+        <div>
+          <label
+            for="mobile"
+            class="mb-2 text-slate-900 font-medium text-sm inline-block dark:text-slate-50"
+            >Mobile Number</label
+          >
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            formControlName="phone"
+            placeholder="1234567890"
+            required
+            class="px-3 py-2.5 text-sm text-slate-900 rounded-md bg-white w-full outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 dark:text-slate-50 dark:bg-neutral-800 dark:outline-neutral-700"
+          />
+          @if (signUpForm.get('phone')?.touched && signUpForm.get('phone')?.invalid) {
+            <p class="text-red-500 text-[12px] mt-1">
+              {{ getError('phone') }}
+            </p>
+          }
+        </div>
+        <div>
+          <label
+            for="password"
+            class="mb-2 text-slate-900 font-medium text-sm inline-block dark:text-slate-50"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            formControlName="password"
+            placeholder="••••••••"
+            required
+            class="px-3 py-2.5 text-sm text-slate-900 rounded-md bg-white w-full outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 dark:text-slate-50 dark:bg-neutral-800 dark:outline-neutral-700"
+          />
+          @if (signUpForm.get('password')?.touched && signUpForm.get('password')?.invalid) {
+            <p class="text-red-500 text-[12px] mt-1">
+              {{ getError('password') }}
+            </p>
+          }
+        </div>
+        <!-- <div>
+          <label
+            for="cpassword"
+            class="mb-2 text-slate-900 font-medium text-sm inline-block dark:text-slate-50"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            id="cpassword"
+            name="cpassword"
+              formControlName="password"
+
+            placeholder="••••••••"
+            required
+            class="px-3 py-2.5 text-sm text-slate-900 rounded-md bg-white w-full outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 dark:text-slate-50 dark:bg-neutral-800 dark:outline-neutral-700"
+          />
+           
+
+        </div> -->
+      </div>
+
+      <div class="mt-6">
+        <button
+          type="submit"
+          class="py-2 px-3.5 text-sm rounded-md font-semibold cursor-pointer tracking-wide text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        >
+          Create an account
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
