@@ -1,3 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #ffffff;
+  --bg-section: #ffffff;
+  --bg-card: #edebeb;
+  --text-primary: #000000;
+  --text-secondary: #7a7a7a;
+  --text-tertiary: #ffffff;
+
+  --primary: #5b3aee;
+
+  /* for  header footer bg */
+  --secondary: #241442;
+}
+
+.dark {
+  --bg: #111827;
+  --bg-section: #1b253c;
+  --bg-card: #222b37;
+
+  --text-primary: #f0eeee;
+  --text-secondary: #7a7a7a;
+  --primary: #352f40;
+  --secondary: #1f2937;
+  --tertiary: #352f40;
+}
+
+@layer base {
+  /* Light Mode Autofill */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #f9fafb inset !important;
+    -webkit-text-fill-color: #111827 !important;
+  }
+
+  /* Dark Mode Autofill */
+  .dark input:-webkit-autofill,
+  .dark input:-webkit-autofill:hover,
+  .dark input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #374151 inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+}
