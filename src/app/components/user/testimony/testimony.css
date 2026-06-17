@@ -1,0 +1,54 @@
+/* The container holding the cards must have a locked height and relative context */
+.slider-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Base style for ALL 5 cards */
+.testimonial-card {
+  position: absolute;
+  top: 10%;
+
+  /* Center alignment calculation base */
+  left: 50%;
+
+  border-color: var(--text-primary);
+  /* Lock global GPU-accelerated transitions */
+  transition:
+    transform 900ms cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 900ms ease,
+    z-index 900ms ease;
+}
+
+/* Positioned on the left side */
+.left {
+  z-index: 1;
+  opacity: 0.4;
+  transform: translate(-120%, 0) scale(0.9);
+}
+
+/* Highlighted perfectly in the center */
+.middle {
+  z-index: 10;
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1.2);
+}
+
+.middle:hover {
+  border-color: var(--text-secondary);
+}
+
+/* Positioned on the right side */
+.right {
+  z-index: 1;
+  opacity: 0.4;
+  transform: translate(20%, 0) scale(0.9);
+}
+
+/* Completely invisible cards wait in the background without breaking the transition */
+.hide {
+  z-index: 0;
+  opacity: 0;
+  transform: translate(-50%, 0) scale(0.7);
+  pointer-events: none;
+}

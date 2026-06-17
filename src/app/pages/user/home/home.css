@@ -1,0 +1,62 @@
+/* 1. THE PARENT CONTAINER (The Mask) */
+.parent-wrapper {
+  overflow: hidden; /* Acts as a hard scissor, clipping the scrollbar below it */
+  width: 100%; /* Or whatever width you need */
+}
+
+/* 2. THE SCROLLING CONTAINER */
+.item-container {
+  display: flex; /* Ensures items stay in a single horizontal row */
+  overflow-x: auto; /* Enables horizontal scrolling */
+  overflow-y: hidden; /* Hard cuts vertical scrolling */
+
+  /* Force native smooth momentum */
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch;
+
+  /* Push the horizontal scrollbar down out of view */
+  scrollbar-width: none;
+  /* Default: Hide scrollbar for standard browsers */
+  /* scrollbar-width: thin;
+  scrollbar-color: var(--text-secondary) transparent; */
+}
+
+.card {
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  transition:
+    transform 600ms ease,
+    opacity 600ms ease;
+}
+
+.card:hover {
+  transform: scale(90%);
+  opacity: 0.7;
+}
+/* 
+/* Hide scrollbar for Webkit by default */
+/* .item-container::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+} */
+
+/* 3. THE HOVER STATE (Bring it back smoothly) */
+
+/* Style the visible horizontal track on hover for Chrome/Safari/Edge */
+
+.parent-wrapper:hover .item-container::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.parent-wrapper:hover .item-container::-webkit-scrollbar-thumb {
+  background-color: currentColor !important;
+  border-radius: 4px;
+}
+
+/* Absolute kill switch for any vertical ticks */
+.item-container::-webkit-scrollbar:vertical,
+.parent-wrapper:hover .item-container::-webkit-scrollbar:vertical {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+}

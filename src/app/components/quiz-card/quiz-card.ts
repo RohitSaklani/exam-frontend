@@ -5,7 +5,7 @@ import { GLobalService } from '../../services/global-service';
 @Component({
   selector: 'app-quiz-card',
   imports: [],
-  templateUrl: './quiz-card.html',
+  templateUrl: `./quiz-card.html`,
   styleUrl: './quiz-card.css',
 })
 export class QuizCard {

@@ -1,0 +1,37 @@
+<section class="my-1 my-1 px-2 sm:px-6 py-4 sm:py-12 overflow-hidden bg-(--bg-section)">
+  <p
+    class="text-lg sm:text-2xl font-semibold text-center mb-12 text-shadow-lg text-(--text-primary)"
+  >
+    Testimonials
+  </p>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- This fixed structural container is what stops the resizing glitch -->
+    <div class="slider-container w-[100%] h-[180px] sm:h-[280px]">
+      @for (item of list; track $index) {
+        <div
+          class="testimonial-card w-[250px] sm:w-[350px] lg:w-[400px] p-3 sm:p-6 bg-(--bg-card) border border-solid rounded-2xl transition-all duration-500"
+          [ngClass]="getClass($index)"
+        >
+          <p
+            class="w-full text-xs sm:text-[15px] font-semibold text-(--text-primary) leading-4 sm:leading-8 mb-2"
+          >
+            &ldquo; {{ item.content }} &rdquo;
+          </p>
+          <div class="flex items-center gap-5">
+            <img
+              class="rounded-full object-cover h-10 w-10 sm:h-13 sm:w-13"
+              src="https://pagedone.io/asset/uploads/1696229969.png"
+              alt="avatar"
+            />
+            <div class="grid gap-1">
+              <h5 class="text-(--text-primary) text-[11px] sm:text-sm font-medium">
+                {{ item.name }}
+              </h5>
+              <span class="text-[10px] sm:text-sm text-(--text-secondary)">CEO</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
