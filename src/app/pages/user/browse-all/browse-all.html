@@ -1,0 +1,34 @@
+<!-- <section
+  class="grid grid-cols-[repeat(auto-fit,minmax(240px,200px))] sm:grid-cols-[repeat(auto-fit,minmax(280px,240px))] justify-center"
+></section> -->
+
+<aside class="sm:grid w-full sm:grid-cols-[250px_1fr] justify-center sm:justify-start gap-1">
+  <app-filter
+    [(isMobileFilterOpen)]="isMobileFilterOpen"
+    (filterChanged)="onFilterChange($event)"
+  />
+
+  <div
+    class="flex flex-wrap sm:grid w-full grid-cols-[repeat(min(240px,1fr))] justify-center sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-1"
+  >
+    <button
+      type="button"
+      class="sm:hidden fixed top-[100px] right-[10px] z-100 px-3.5 py-2 text-white text-sm font-semibold rounded-md cursor-pointer bg-blue-600 hover:bg-blue-700 border border-blue-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      (click)="switchMobileFilterOpen()"
+      [class.hidden]="isMobileFilterOpen()"
+    >
+      Filters
+    </button>
+    @for (quiz of quizList(); track $index) {
+      <app-quiz-card
+        [cardDetails]="{
+          id: quiz.id,
+          name: quiz.name,
+          level: quiz.level,
+          durationInSec: quiz.durationInSec,
+          subjectName: quiz.subject.name,
+        }"
+      />
+    }
+  </div>
+</aside>
