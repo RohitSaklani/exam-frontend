@@ -1,0 +1,47 @@
+<section
+  class="w-full p-[10px] flex justify-center bg-[url('/bg-image-grain.png')] bg-blend-overlay bg-cover bg-white/50 dark:bg-blue-950/50"
+>
+  <div class="min-w-[95vw] p-[10px] flex flex-col bg-(--bg) rounded-2xl">
+    @for (question of questionList(); track question.id; let i = $index) {
+      <div class="m-[10px]">
+        <h3 class="mb-4 font-semibold text-blue-600 dark:text-gray-200">
+          <span class="text-blue-800 dark:text-gray-500">{{ 'Q' + (i + 1) + ' -  ' }}</span>
+          {{ question.value }}
+        </h3>
+        <ul class="w-48 rounded-base w-full">
+          @for (option of question.optionList; track $index) {
+            <li class="w-full py-1">
+              <div class="flex items-center ps-3 relative w-full">
+                <input
+                  [id]="option.id"
+                  type="radio"
+                  [value]="option.id"
+                  [name]="question.id"
+                  class="peer appearance-none h-4 w-4 rounded-none border border-gray-400 transition-all cursor-pointer checked:bg-indigo-600"
+                  (change)="onOptionSelect(question.id, option.id)"
+                />
+
+                <div
+                  class="absolute w-4 h-4 dark:bg-indigo-800 scale-0 transition-transform peer-checked:scale-100 pointer-events-none text-gray-300"
+                ></div>
+
+                <label
+                  [for]="option.id"
+                  class="w-full py-1 select-none ms-2 text-sm font-medium dark:text-gray-200"
+                  >{{ option.value }}</label
+                >
+              </div>
+            </li>
+          }
+        </ul>
+        <hr />
+      </div>
+    }
+    <button
+      class="w-[100px] rounded-xl self-end cursor-pointer text-white bg-(--secondary) hover:bg-primary-700 font-medium text-sm mt-8 px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700"
+      (click)="onSubmit()"
+    >
+      Submit
+    </button>
+  </div>
+</section>
