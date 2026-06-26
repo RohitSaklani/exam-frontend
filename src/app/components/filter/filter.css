@@ -1,0 +1,9 @@
+.overlay {
+  display: flex;
+  position: fixed !important;
+  top: 80px !important;
+  left: 0 !important;
+  width: 80vw !important;
+
+  z-index: 1000 !important;
+}

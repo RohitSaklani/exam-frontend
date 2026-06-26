@@ -1,0 +1,98 @@
+<div class="my-3">
+  <button
+    type="button"
+    class="flex items-center gap-2 justify-between cursor-pointer w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+    id="category-button"
+    (click)="switchIsOpen()"
+  >
+    <h3 class="text-slate-900 text-[17px] font-semibold dark:text-slate-50">Level</h3>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-3 h-3 fill-slate-600 transition-all duration-300 -rotate-90 dark:fill-slate-400"
+      viewBox="0 0 492.004 492.004"
+      [class.hidden]="!isOpen()"
+    >
+      <path
+        d="M382.678 226.804 163.73 7.86C158.666 2.792 151.906 0 144.698 0s-13.968 2.792-19.032 7.86l-16.124 16.12c-10.492 10.504-10.492 27.576 0 38.064L293.398 245.9l-184.06 184.06c-5.064 5.068-7.86 11.824-7.86 19.028 0 7.212 2.796 13.968 7.86 19.04l16.124 16.116c5.068 5.068 11.824 7.86 19.032 7.86s13.968-2.792 19.032-7.86L382.678 265c5.076-5.084 7.864-11.872 7.848-19.088.016-7.244-2.772-14.028-7.848-19.108z"
+      />
+    </svg>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-3 h-3 fill-slate-600 transition-all duration-300 dark:fill-slate-400"
+      viewBox="0 0 492.004 492.004"
+      [class.hidden]="isOpen()"
+    >
+      <path
+        d="M265.2 382.68 484.14 163.73c5.07-5.06 7.86-11.82 7.86-19.03s-2.79-13.97-7.86-19.03l-16.12-16.12c-10.5-10.49-27.58-10.49-38.06 0L246.1 293.4 62.04 109.34c-5.07-5.06-11.82-7.86-19.03-7.86-7.21 0-13.97 2.8-19.04 7.86L7.86 125.46C2.79 130.53 0 137.29 0 144.49s2.79 13.97 7.86 19.03L226.8 382.68c5.08 5.08 11.87 7.86 19.09 7.85 7.24.01 14.03-2.77 19.11-7.85z"
+      />
+    </svg>
+  </button>
+
+  <div
+    id="level-panel"
+    [class.hidden]="!isOpen()"
+    class="overflow-hidden transition-all duration-300 px-1 pb-1"
+    role="region"
+  >
+    <!-- <form class="mt-2 relative" role="search" aria-label="Search category">
+        <div
+          class="flex items-center gap-2.5 px-3 py-2 rounded-md bg-white dark:bg-neutral-700 outline-1 -outline-offset-1 outline-slate-300 dark:outline-neutral-600 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-600"
+        >
+          <label for="search-category" class="sr-only">Search category</label>
+          <input
+            type="search"
+            id="search-category"
+            name="search-category"
+            placeholder="Search category"
+            class="text-sm text-slate-900 dark:text-slate-50 w-full outline-none"
+          />
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 192.904 192.904"
+            class="size-4 fill-slate-400 ml-auto"
+            aria-hidden="true"
+          >
+            <path
+              d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z"
+            ></path>
+          </svg>
+        </div>
+      </form> -->
+
+    <ul class="mt-4 space-y-4 relative">
+      @for (level of levelList(); track $index) {
+        <li>
+          <label for="{{ level.name }}" class="inline-flex items-center gap-2.5 group">
+            <input
+              type="checkbox"
+              class="sr-only"
+              id="{{ level.name }}"
+              name="level"
+              value="{{ level.name }}"
+              [checked]="level.checked"
+              (click)="onCheckBoxChange(level.name)"
+            />
+            <span
+              class="flex h-4 w-4 shrink-0 items-center justify-center rounded outline-1 outline-slate-300 dark:outline-neutral-600 bg-white dark:bg-neutral-700 group-has-[input:checked]:bg-blue-600 group-has-[input:checked]:outline-blue-600 group-focus-within:outline-2 group-focus-within:outline-blue-600"
+              aria-hidden="true"
+            >
+              <!-- Checkmark -->
+              <svg
+                class="size-3 text-white opacity-0 group-has-[input:checked]:opacity-100"
+                viewBox="0 0 12 10"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M1 5l3 3 7-7" />
+              </svg>
+            </span>
+            <span class="text-sm text-slate-900 dark:text-slate-50">{{ level.name }}</span>
+          </label>
+        </li>
+      }
+    </ul>
+  </div>
+</div>

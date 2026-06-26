@@ -1,0 +1,41 @@
+<div
+  id="filter"
+  class="h-[88vh] min-w-full lg:h-[85vh] hidden bg-gray-500/80 sm:block sticky top-[80px] lg:top-[100px]"
+  [class.overlay]="isMobileFilterOpen()"
+>
+  <div
+    class="z-1000 h-full flex flex-col overflow-x-hidden overflow-y-auto box-border px-4 md:px-6 pt-6 pb-2 bg-gray-100 border-r border-slate-100 dark:bg-(--bg)/70 dark:border-neutral-700"
+  >
+    <div class="flex justify-between border-b border-slate-300 pb-2 mb-6 dark:border-neutral-700">
+      <h2 id="filter-heading" class="text-slate-900 text-lg font-semibold dark:text-slate-50">
+        Filter
+      </h2>
+      <button [class.hidden]="!isMobileFilterOpen()" (click)="switchMobileFilter()">✖</button>
+    </div>
+    <app-subject-filter [(subjectList)]="subjectList" />
+
+    <app-level-filter [(levelList)]="levelList" />
+
+    <app-rating-filter [(rating)]="rating" />
+
+    <div
+      class="mt-auto flex justify-end gap-3 items-end border-b border-slate-300 py-4 dark:border-neutral-700"
+    >
+      <button
+        type="button"
+        class="px-3.5 py-2 text-white text-sm font-semibold rounded-md cursor-pointer bg-blue-600 hover:bg-blue-700 border border-blue-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        (click)="applyFilters()"
+      >
+        Apply
+      </button>
+
+      <button
+        type="button"
+        class="px-3.5 py-2 text-slate-900 dark:text-slate-100 text-sm font-semibold rounded-md cursor-pointer bg-slate-100 hover:bg-slate-200 dark:bg-neutral-700 dark:hover:bg-neutral-800 border border-slate-200 dark:border-neutral-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        (click)="clearFilterAll()"
+      >
+        Clear All
+      </button>
+    </div>
+  </div>
+</div>
