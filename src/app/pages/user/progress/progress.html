@@ -1,0 +1,285 @@
+<main class="py-6 px-4 md:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex justify-between items-center flex-wrap gap-4 mb-8">
+      <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-50">Progress</h1>
+      <!-- <button
+        type="button"
+        class="px-3.5 py-2 text-white text-sm font-semibold rounded-md cursor-pointer bg-blue-600 border border-blue-600 transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      >
+        Create New Order
+      </button> -->
+    </div>
+
+    <!-- Stats -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" aria-label="Order statistics">
+      <!-- Card 1 -->
+      <div
+        class="bg-white rounded-md border border-slate-300 p-4 dark:bg-neutral-800 dark:border-neutral-700"
+      >
+        <div class="flex items-center flex-wrap gap-4">
+          <div class="flex-shrink-0 p-2.5 rounded-md bg-blue-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="size-7 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-slate-600 dark:text-slate-400">Attempted Quizzes</p>
+            <p class="text-lg font-semibold text-slate-900 mt-1 dark:text-slate-50">21</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="bg-white rounded-md border border-slate-300 p-4 dark:bg-neutral-800 dark:border-neutral-700"
+      >
+        <div class="flex items-center flex-wrap gap-4">
+          <div class="flex-shrink-0 p-2.5 rounded-md bg-blue-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="size-7 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-slate-600 dark:text-slate-400">Passed Quizzes</p>
+            <p class="text-lg font-semibold text-slate-900 mt-1 dark:text-slate-50">15</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+    </div>
+
+    <!-- table data -->
+    <div class="mt-6 border border-slate-300 rounded-md overflow-hidden dark:border-neutral-700">
+      <div class="px-6 py-5 border-b border-slate-300 dark:border-neutral-700">
+        <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-50">Result History</h2>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-slate-300 dark:divide-neutral-700">
+          <caption class="sr-only">
+            QUIZ
+          </caption>
+          <thead class="bg-gray-50 dark:bg-neutral-800 text-center">
+            <tr>
+              <th
+                scope="col"
+                class="px-6 py-3 text-center text-xs font-medium text-slate-600 uppercase tracking-wider dark:text-slate-400"
+              >
+                NAME
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-center text-xs font-medium text-slate-600 uppercase tracking-wider dark:text-slate-400"
+              >
+                SUBJECT
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-center text-xs font-medium text-slate-600 uppercase tracking-wider dark:text-slate-400"
+              >
+                TOTAL QUESTION
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-center text-xs font-medium text-slate-600 uppercase tracking-wider dark:text-slate-400"
+              >
+                ATTEMPTED QUESTION
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-center text-xs font-medium text-slate-600 uppercase tracking-wider dark:text-slate-400"
+              >
+                RIGHT QUESTION
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-center text-xs font-medium text-slate-600 uppercase tracking-wider dark:text-slate-400"
+              >
+                SCORE
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-center text-xs font-medium text-slate-600 uppercase tracking-wider dark:text-slate-400"
+              >
+                Action
+              </th>
+            </tr>
+          </thead>
+
+          <tbody class="divide-y divide-slate-300 dark:divide-neutral-700 text-center">
+            @for (result of resultList(); track $index) {
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm font-medium text-slate-900 dark:text-slate-50">
+                    {{ result.quiz.name }}
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-slate-900 dark:text-slate-50">
+                    {{ result.quiz.subject.name }}
+                  </div>
+                  <!-- <div class="text-[13px] text-slate-600 mt-0.5 dark:text-slate-400">
+                  david@example.com
+                </div> -->
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-slate-900 dark:text-slate-50">
+                    {{ result.totalQuestions }}
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-slate-900 dark:text-slate-50">
+                    {{ result.attemptedquestions }}
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900 dark:text-slate-50">
+                  {{ result.rightQuestions }}
+                </td>
+
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900 dark:text-slate-50">
+                  <span
+                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"
+                    [ngClass]="
+                      result.score < result.quiz.passingScore
+                        ? 'bg-orange-100 text-orange-700 dark:bg-orange-900/20 dark:text-orange-500'
+                        : 'bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-500'
+                    "
+                  >
+                    {{ result.score }} %
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  @if (result.quiz.enabled) {
+                    <span
+                      href="#"
+                      class="text-blue-700 dark:text-blue-500 cursor-pointer"
+                      (click)="globalService.navigate(`/quiz/${result.quiz.id}`)"
+                      >Retake</span
+                    >
+                  }
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <!-- pagination -->
+      <div
+        class="flex items-center justify-between flex-wrap gap-6 px-4 py-4 border-t border-slate-300 md:px-6 dark:border-neutral-700"
+      >
+        <!-- <div class="text-sm text-slate-600 dark:text-slate-400">
+          Showing
+          <span class="font-medium mx-1">1</span>
+          to
+          <span class="font-medium mx-1">10</span>
+          of
+          <span class="font-medium mx-1">60</span>
+          results
+        </div> -->
+
+        <!-- <nav
+          aria-label="Pagination"
+          class="flex items-center w-max rounded-md bg-white border border-slate-300 divide-x divide-slate-300 dark:bg-neutral-800 dark:border-neutral-700 dark:divide-neutral-700"
+        >
+          <a
+            href="#"
+            aria-label="Previous page"
+            class="flex items-center justify-center shrink-0 w-9 h-9 rounded-l-[5px] hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:hover:bg-neutral-700"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="fill-slate-600 size-3 rotate-180 overflow-visible dark:fill-slate-50"
+              viewBox="0 0 451.846 451.847"
+              aria-hidden="true"
+            >
+              <path
+                d="M345.441 248.292 151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373"
+                data-original="#000000"
+              />
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-center shrink-0 text-sm font-semibold text-slate-900 w-9 h-9 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-slate-50 dark:hover:bg-neutral-700"
+          >
+            1
+          </a>
+          <a
+            href="#"
+            aria-current="page"
+            class="flex items-center justify-center shrink-0 text-sm font-semibold text-white w-9 h-9 bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          >
+            2
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-center shrink-0 text-sm font-semibold text-slate-900 w-9 h-9 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-slate-50 dark:hover:bg-neutral-700"
+          >
+            3
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-center shrink-0 text-sm font-semibold text-slate-900 w-9 h-9 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-slate-50 dark:hover:bg-neutral-700"
+          >
+            4
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-center shrink-0 text-sm font-semibold text-slate-900 w-9 h-9 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-slate-50 dark:hover:bg-neutral-700"
+          >
+            5
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-center shrink-0 text-sm font-semibold text-slate-900 w-9 h-9 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-slate-50 dark:hover:bg-neutral-700"
+          >
+            6
+          </a>
+          <a
+            href="#"
+            aria-label="Next page"
+            class="flex items-center justify-center shrink-0 w-9 h-9 rounded-r-[5px] hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-slate-50 dark:hover:bg-neutral-700"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="fill-slate-600 size-3 overflow-visible dark:fill-slate-50"
+              viewBox="0 0 451.846 451.847"
+              aria-hidden="true"
+            >
+              <path
+                d="M345.441 248.292 151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373"
+                data-original="#000000"
+              />
+            </svg>
+          </a>
+        </nav> -->
+      </div>
+    </div>
+  </div>
+</main>
